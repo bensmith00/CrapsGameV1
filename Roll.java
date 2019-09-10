@@ -14,11 +14,11 @@ public class Roll implements Dice {
 		Dice d1 = new InteractiveDie();
 		Dice d2 = new InteractiveDie();
 		Scanner in = new Scanner(System.in);
-		Player bankroll = new Player();
+		Player d = new Player();
 
 		System.out.print("Enter Buyin = " + "\n" + "$");
 		int bmoney = in.nextInt();
-		bankroll.setBankroll(bmoney);
+		d.setBankroll(bmoney);
 
 		// System.out.println(bankroll.getBankroll());
 
@@ -27,7 +27,6 @@ public class Roll implements Dice {
 
 			// Wager makeWager = new Wager();
 
-			Player d = new Player();
 			System.out.print("Enter Passline wager = " + "\n" + "$");
 			int passbet = in.nextInt();
 			if (passbet <= bmoney && passbet >= 5 && passbet <= 2500) {
@@ -39,10 +38,6 @@ public class Roll implements Dice {
 			} else if (passbet < 5 || passbet > 2500) {
 				passbet = 0;
 				System.out.print("\n" + "NO BET!!" + "\n" + "The minimum bet is $5 and the maximum is $2500");
-			} else if (passbet == 0) {
-				System.out.print("\n" + "Bet the Don't Pass?");
-				int dontbet = in.nextInt();
-				d.setDontPass(dontbet);
 			} else {
 				passbet = 0;
 				System.out.print("\n" + "NO BET!!" + "\n" + "Your wager may not be more than $" + bmoney + "\n");
